@@ -1,0 +1,24 @@
+<header>
+  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #45bf1e;">
+    <div class="container">
+      <a class="navbar-brand" href="/"><span>totonoete</span></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ml-auto">
+          <%# if user_signed_in? %>
+            <!--<li><%#= link_to 'About', '#', class: 'fas fa-bread-slice nav-link text-dark' %></li>-->
+            <!--<li><%#= link_to 'Menu', '#', class: 'fas fa-clipboard nav-link text-dark' %></li>-->
+            <!--<li><%#= link_to 'Users', '#', class: 'fas fa-fish nav-link text-dark' %></li>-->
+            <!--<li><%#= link_to 'Log out', '#', method: :delete, class: 'fas fa-sign-out-alt nav-link text-dark' %></li>-->
+          <%# else %>
+            <li><%= link_to 'ととのえてとは？', home_about_path, class: 'fas fa-bread-slice nav-link text-dark' %></li>
+            <li><%= link_to '新規登録', '#', class: 'fas fa-user-plus nav-link text-dark' %></li>
+            <li><%= link_to 'ログイン', '#', class: 'fas fa-sign-in-alt nav-link text-dark' %></li>
+          <%# end %>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>

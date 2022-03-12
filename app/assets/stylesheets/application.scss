@@ -13,3 +13,37 @@
  *= require_tree .
  *= require_self
  */
+
+@import "bootstrap";
+@import 'font-awesome-sprockets';
+@import 'font-awesome';
+@import url('https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900');
+
+*
+{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+a:hover
+{
+  text-decoration: none;
+}
+
+.alert
+{
+  color: red;
+  font-size: calc(18 / 1400 * 100vw);
+  text-align: center;
+}
+
+.error
+{
+  color:#262626;
+  background:#FFEBE8;
+  text-align: center;
+  border:2px solid #990000;
+  padding:12px; font-weight:850;
+}

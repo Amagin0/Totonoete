@@ -1,24 +1,16 @@
-# README
+# ***Totonoete***
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## :pencil:サイト概要
+ランダム謎かけアプリ
+- お題がランダムで出てくるので、それをうまいこと整える
+- 人気のものや、新着はサイトTOPで表示される
 
-Things you may want to cover:
+## :computer:開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 使用素材
+[グラフォン](https://graphon.jp/main/index)

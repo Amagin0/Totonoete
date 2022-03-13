@@ -1,0 +1,8 @@
+<div class="offset-1">
+  <h2><strong>問題</strong></h2>
+  <%= form_with model: question, local: true do |f| %>
+    <div class="form-group">
+      <%= f.text_field :q_description, class: 'form-control' %>
+    </div>
+  <% end %>
+</div>

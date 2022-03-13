@@ -1,10 +1,11 @@
 class ApplicationController < ActionController::Base
-  helper_method :current_user
-  
+  helper_method :current_user, :signed_in?
+  include SessionsHelper
+
   private
-  
-  def current_user
-    @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
+
+  def signed_in?
+    current_user
   end
-    
+
 end

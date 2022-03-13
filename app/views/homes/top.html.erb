@@ -3,17 +3,40 @@
     <div class="title">
       人気
     </div>
+    <div>
+      <%= @popular_questions.each do |popular_q| %>
+        <%= link_to question_path(popular_q) do %>
+          <% popular_q.q_title %>
+        <% end %>
+      <% end %>
+    </div>
   </div>
 
   <div class="row">
     <div class="title">
       新着
     </div>
+    <div>
+      <%= @new_questions.each do |new_q| %>
+        <%= link_to question_path(new_q) do %>
+          <% new_q.q_title %>
+        <% end %>
+      <% end %>
+    </div>
   </div>
   
   <div class="row">
     <div class="title">
-      ととのえスト
+      ととのえスト一覧
+      <tr>
+        <td class="users">
+          <%#= @users.each do |user| %>
+            <%#= link_to user_path(user) do %>
+              <%#= user.name %>
+            <%# end %>
+          <%# end %>
+        </td>
+      </tr>
     </div>
   </div>
 </div>

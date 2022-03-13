@@ -1,5 +1,8 @@
 class QuestionsController < ApplicationController
   def new
     @question = Question.new
-    @random = Question.order("RAND()").limit(1).map{|v| [v.odai]}
+    random_theme = Question.pluck(:id).shuffle[0..100]
+    @random_1st = Question.find(random_theme).first
+    @random_2nd = Question.find(random_theme).second
+  end
 end

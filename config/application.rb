@@ -12,9 +12,12 @@ module Totonoete
     config.load_defaults 5.2
 
     # logget導入
-    config.logger = Logger.new(STDOUT)
+    # config.logger = Logger.new(STDOUT)
     # @example = Example.create(name :"abc")
     # logger.debug @example.errors.inspect
+
+    config.i18n.available_locales = %i[ja en]
+    config.i18n.default_locale = :ja
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers

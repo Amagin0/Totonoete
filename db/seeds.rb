@@ -22,6 +22,3 @@
   Question.create!(odai: Faker::Games::SuperMario.game)
   Question.create!(odai: Faker::Restaurant.type)
 end
-
-
-

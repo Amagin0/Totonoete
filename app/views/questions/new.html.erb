@@ -1,8 +1,14 @@
-<div class="offset-1">
+<div class="container offset-1">
   <h2><strong>問題</strong></h2>
-  <%= form_with model: question, local: true do |f| %>
-    <div class="form-group">
+  <%= form_with model: @question, local: true do |f| %>
+    <div class="form-group col-md-10">
+      <%= f.text_field :q_title, class: 'form-control', readonly: true, value: "#{@random_1st} とかけまして #{@random_2nd} と説くそのこころは？" %>
+    </div>
+    <div class="form-group col-md-10">
       <%= f.text_field :q_description, class: 'form-control' %>
+    </div>
+    <div class="form-group col-md-10">
+      <%= f.submit "答える" %>
     </div>
   <% end %>
 </div>

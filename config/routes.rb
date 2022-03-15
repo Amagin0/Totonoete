@@ -10,5 +10,5 @@ Rails.application.routes.draw do
   delete '/unsubscribe', to: 'users#destroy'
 
   resources :users, only: %i[index show edit]
-  resources :questions, only: %i[new show list]
+  resources :questions
 end

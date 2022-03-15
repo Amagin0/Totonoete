@@ -1,3 +1,3 @@
 class Question < ApplicationRecord
-  has_many :questions
+  belongs_to :user , foreign_key: 'user_id', optional: true
 end

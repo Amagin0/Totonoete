@@ -1,3 +1,33 @@
-// Place all the styles related to the questions controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+body
+{
+  margin: 0;
+  margin-top: 5vh;
+  padding: 0;
+  max-height: 100vh;
+}
+
+.card
+{
+  justify-content: center;
+  text-align: center;
+  width: 40vw;
+  margin: 0 auto;
+}
+
+.card .h5 .card-title
+{
+  position: relative;
+  padding: 1.5rem 1.5rem calc(1.5rem);
+}
+
+.card .card-title .textarea
+{
+  text-align: center;
+  height: calc(20 / 1400 * 100vw);
+}
+
+.card .card-body .submit
+{
+  font-size: calc(30 / 1400 * 100vw);
+  margin: 0 auto;
+}

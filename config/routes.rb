@@ -9,6 +9,6 @@ Rails.application.routes.draw do
   post '/signup', to: 'users#create'
   delete '/unsubscribe', to: 'users#destroy'
 
-  resources :users, only: %i[index show edit]
+  resources :users
   resources :questions
 end

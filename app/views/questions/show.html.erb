@@ -1,0 +1,22 @@
+<div class="card my-5">
+  <div class="card-body">
+    <div class="card-head">
+      <h2><strong>問題</strong></h2>
+    </div>
+    <p>
+      <div class="card-title card-flame title-box">
+        <%= @question.q_title %>
+      </div>
+    </p>
+    <p>
+      <div class="card-text text-box">
+        <%= @question.q_description %>
+      </div>
+    </p>
+    <p>
+      <div class="card-footer">
+        <%= @question.user.name %>
+      </div>
+    </p>
+  </div>
+</div>

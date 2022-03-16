@@ -1,64 +1,57 @@
-<div class="container">
-  <div class="row">
-    <div class="title">
-      人気
-    </div>
-  </div>
-  <div>
-    <% @popular_questions.each do |popular_q| %>
-      <%= link_to question_path(popular_q) do %>
+<nav>
+  <%= link_to "人気", 'javascript:void(0);', class: "active", 'data-tab': :popular %>
+  <%= link_to "新着", 'javascript:void(0);', 'data-tab': :new %>
+  <%= link_to "ユーザー", 'javascript:void(0);', 'data-tab': :user %>
+  <div class="clear"></div>
+</nav>
+
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active title" id="popular" data-role="tabpanel" aria-labelledby="popular-tab">
+      <% @popular_questions.each do |popular_q| %>
         <p>
-          <div class="card">
+          <%= link_to question_path(popular_q) do %>
             <div class="card-body">
               <p class="card-title">
                 <%= popular_q.q_title %>
               </p>
               <p class="card-text">
-                <%#= popular_q.q_description %>
+                <%= popular_q.q_description %>
               </p>
             </div>
-          </div>
+          <% end %>
         </p>
       <% end %>
-    <% end %>
-  </div>
-
-  <div class="row">
-    <div class="title">
-      新着
     </div>
-  </div>
-  <div>
-    <% @new_questions.each do |new_q| %>
-      <%= link_to question_path(new_q) do %>
+    <div class="tab-pane  fade title" id="new" data-role="tabpanel" aria-labelledby="new-tab">
+      <% @new_questions.each do |new_q| %>
         <p>
-          <div class="card">
+          <%= link_to question_path(new_q) do %>
             <div class="card-body">
               <p class="card-title">
                 <%= new_q.q_title %>
               </p>
               <p class="card-text">
-                <%#= new_q.q_description %>
+                <%= new_q.q_description %>
               </p>
             </div>
-          </div>
+          <% end %>
         </p>
       <% end %>
-    <% end %>
-  </div>
-
-  <div class="row">
-    <div class="title">
-      ととのえスト一覧
+    </div>
+    <div class="tab-pane title fade", id="user" data-role="tabpanel" aria-labelledby="user-tab">
+      <tr>
+        <td class="users">
+          <% @users.each do |user| %>
+            <%= link_to user_path(user) do %>
+              <%= user.name %>
+            <% end %>
+          <% end %>
+        </td>
+      </tr>
     </div>
   </div>
-  <tr>
-    <td class="users">
-      <% @users.each do |user| %>
-        <%= link_to user_path(user) do %>
-          <%= user.name %>
-        <% end %>
-      <% end %>
-    </td>
-  </tr>
 </div>
+
+<script>
+
+</script>

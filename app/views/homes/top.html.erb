@@ -1,57 +1,49 @@
-<nav>
-  <%= link_to "人気", 'javascript:void(0);', class: "active", 'data-tab': :popular %>
-  <%= link_to "新着", 'javascript:void(0);', 'data-tab': :new %>
-  <%= link_to "ユーザー", 'javascript:void(0);', 'data-tab': :user %>
-  <div class="clear"></div>
-</nav>
+<%= stylesheet_link_tag 'homes', :media => "all" %>
 
-  <div class="tab-content" id="myTabContent">
-    <div class="tab-pane fade show active title" id="popular" data-role="tabpanel" aria-labelledby="popular-tab">
+<div class="tab_wrap">
+		<input id="tab1" type="radio" name="tab_btn">
+		<input id="tab2" type="radio" name="tab_btn" checked>
+		<input id="tab3" type="radio" name="tab_btn">
+  <div class="tab_area">
+		<label class="tab1_label" for="tab1" >人気</label>
+		<label class="tab2_label" for="tab2" >新着</label>
+		<label class="tab3_label" for="tab3" >ユーザー</label>
+	</div>
+
+	<div class="panel_area" >
+		<div id="panel1" class="tab_panel">
+		  <div class="title">人気</div>
       <% @popular_questions.each do |popular_q| %>
-        <p>
-          <%= link_to question_path(popular_q) do %>
-            <div class="card-body">
-              <p class="card-title">
-                <%= popular_q.q_title %>
-              </p>
-              <p class="card-text">
-                <%= popular_q.q_description %>
-              </p>
-            </div>
-          <% end %>
-        </p>
+        <%= link_to question_path(popular_q) do %>
+          <div class="question-body">
+            <span class="question-title">お題</span>
+            <p><%= popular_q.q_title %></p>
+          </div>
+        <% end %>
+      <% end %>
+		</div>
+		<div id="panel2" class="tab_panel">
+		  <div class="title">新着</div>
+  		<% @new_questions.each do |new_q| %>
+        <%= link_to question_path(new_q) do %>
+    		  <div class="question-body">
+    		    <span class="question-title">お題</span>
+            <p><%= new_q.q_title %></p>
+          </div>
+        <% end %>
       <% end %>
     </div>
-    <div class="tab-pane  fade title" id="new" data-role="tabpanel" aria-labelledby="new-tab">
-      <% @new_questions.each do |new_q| %>
-        <p>
-          <%= link_to question_path(new_q) do %>
-            <div class="card-body">
-              <p class="card-title">
-                <%= new_q.q_title %>
-              </p>
-              <p class="card-text">
-                <%= new_q.q_description %>
-              </p>
-            </div>
+		<div id="panel3" class="tab_panel">
+    <tr>
+      <td class="users" >
+        <% @users.each do |user| %>
+          <%= link_to user_path(user) do %>
+            <%= user.name %>
           <% end %>
-        </p>
-      <% end %>
-    </div>
-    <div class="tab-pane title fade", id="user" data-role="tabpanel" aria-labelledby="user-tab">
-      <tr>
-        <td class="users">
-          <% @users.each do |user| %>
-            <%= link_to user_path(user) do %>
-              <%= user.name %>
-            <% end %>
-          <% end %>
-        </td>
-      </tr>
-    </div>
-  </div>
+        <% end %>
+      </td>
+    </tr>
+		</div>
+	</div>
 </div>
 
-<script>
-
-</script>

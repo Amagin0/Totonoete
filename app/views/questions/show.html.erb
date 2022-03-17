@@ -1,7 +1,9 @@
+<%= stylesheet_link_tag 'questions', :media => "all" %>
+
 <div class="card my-5">
   <div class="card-body">
     <div class="card-head">
-      <h2><strong>問題</strong></h2>
+      <h2><strong>お題</strong></h2>
     </div>
     <p>
       <div class="card-title card-flame title-box">
@@ -15,7 +17,7 @@
     </p>
     <p>
       <div class="card-footer">
-        <%= @question.user.name %>
+        ととのえし者：<%= @question.user.name %>
       </div>
     </p>
   </div>

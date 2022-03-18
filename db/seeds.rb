@@ -22,3 +22,32 @@
   Question.create!(odai: Faker::Games::SuperMario.game)
   Question.create!(odai: Faker::Restaurant.type)
 end
+
+User.first_or_create!(name: "aaa", email: "a@a", password: "aaaaaa")
+User.create!(name: "bbb", email: "b@b", password: "bbbbbb")
+User.create!(name: "ccc", email: "c@c", password: "cccccc")
+
+Question.create!(q_title: "銀行とかけまして　\n\r旅行ととく　\r\nそのこころは？",
+                 q_description: "どちらもGoTo(強盗)対策が必要でしょう",
+                 user_id: "1")
+
+Question.create!(q_title: "南国のビーチとかけまして　\n\r休日の警察官ととく　\r\nそのこころは？",
+                 q_description: "どちらも至福（私服）の時を過ごしています",
+                 user_id: "1")
+
+Question.create!(q_title: "牛丼とかけまして　\n\r海ととく　\r\nそのこころは？",
+                 q_description: "どちらも並み(波)があるでしょう",
+                 user_id: "1")
+
+Question.create!(q_title: "漫画家とかけまして　\n\r秘密の関係ととく　\r\nそのこころは？",
+                 q_description: "どちらもかくしごと(書く仕事、隠し事)でしょう",
+                 user_id: "2")
+
+Evaluation.create!(question_id: "151", user_id: "1", rate: "1000")
+Evaluation.create!(question_id: "151", user_id: "2", rate: "800")
+Evaluation.create!(question_id: "152", user_id: "1", rate: "1500")
+Evaluation.create!(question_id: "152", user_id: "2", rate: "100")
+Evaluation.create!(question_id: "153", user_id: "1", rate: "2000")
+Evaluation.create!(question_id: "153", user_id: "2", rate: "500")
+Evaluation.create!(question_id: "154", user_id: "2", rate: "100")
+Evaluation.create!(question_id: "154", user_id: "3", rate: "200")

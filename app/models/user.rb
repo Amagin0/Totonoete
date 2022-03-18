@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_many :questions
+  has_many :evaluations
 
   before_save { self.email = email.downcase }
   validates :email, presence: true, length: { maximum: 255 }

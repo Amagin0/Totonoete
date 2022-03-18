@@ -50,7 +50,7 @@ input[type="radio"]
 .tab_wrap
 {
   width: calc(550 / 1400 * 100vw );
-  margin: calc(50 / 1400 * 100vw ) auto;
+  margin: calc(20 / 1400 * 100vw ) auto;
 }
 
 .tab_area
@@ -91,7 +91,7 @@ input[type="radio"]
 
 .panel_area{
   width: calc(650 / 1400 * 100vw );
-  height: calc(900 / 1400 * 100vw );
+  height: calc(950 / 1400 * 100vw );
   background: #fff;
   padding: calc(10 / 1400 * 100vw ) 0;
   border: calc(4 / 1400 * 100vw ) solid #90C9CF;

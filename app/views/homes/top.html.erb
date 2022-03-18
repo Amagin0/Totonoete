@@ -1,24 +1,29 @@
 <%= stylesheet_link_tag 'homes', :media => "all" %>
 
 <div class="tab_wrap">
-		<input id="tab1" type="radio" name="tab_btn">
-		<input id="tab2" type="radio" name="tab_btn" checked>
+		<input id="tab1" type="radio" name="tab_btn" checked>
+		<input id="tab2" type="radio" name="tab_btn">
 		<input id="tab3" type="radio" name="tab_btn">
   <div class="tab_area">
 		<label class="tab1_label" for="tab1" >人気</label>
 		<label class="tab2_label" for="tab2" >新着</label>
-		<label class="tab3_label" for="tab3" >ユーザー</label>
+		<label class="tab3_label" for="tab3" >殿堂入り</label>
 	</div>
 
 	<div class="panel_area" >
 		<div id="panel1" class="tab_panel">
 		  <div class="title">人気</div>
       <% @popular_questions.each do |popular_q| %>
-        <%= link_to question_path(popular_q) do %>
-          <div class="question-body">
-            <span class="question-title">お題</span>
-            <p><%= popular_q.q_title %></p>
-          </div>
+        <% if popular_q.sum_rate >= 100 %>
+          <%= link_to question_path(popular_q) do %>
+            <div class="question-body">
+              <span class="question-title">お題</span>
+              <p><%= popular_q.q_title %></p>
+              <div>
+                <%= image_tag "star-on.png" %>：<%= popular_q.sum_rate %>
+              </div>
+            </div>
+          <% end %>
         <% end %>
       <% end %>
 		</div>
@@ -29,21 +34,28 @@
     		  <div class="question-body">
     		    <span class="question-title">お題</span>
             <p><%= new_q.q_title %></p>
+            <div>
+              <%= image_tag "star-on.png" %>：<%= new_q.sum_rate %>
+            </div>
           </div>
         <% end %>
       <% end %>
     </div>
 		<div id="panel3" class="tab_panel">
-    <tr>
-      <td class="users" >
-        <% @users.each do |user| %>
-          <%= link_to user_path(user) do %>
-            <%= user.name %>
+		  <div class="title">殿堂入り</div>
+      <% @legend_questions.each do |legend_q| %>
+        <% if legend_q.sum_rate >= 1000 %>
+          <%= link_to question_path(legend_q) do %>
+            <div class="question-body">
+              <span class="question-title">お題</span>
+              <p><%= legend_q.q_title %></p>
+              <div>
+                <%= image_tag "star-on.png" %>：<%= legend_q.sum_rate %>
+              </div>
+            </div>
           <% end %>
         <% end %>
-      </td>
-    </tr>
-		</div>
+      <% end %>
+  	</div>
 	</div>
 </div>
-

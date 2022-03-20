@@ -1,4 +1,6 @@
 class QuestionsController < ApplicationController
+  before_action :authenticate_user, only: %i[new show]
+
   def new
     @question = Question.new
     random = Theme.pluck(:id).shuffle[0..1]
@@ -13,7 +15,7 @@ class QuestionsController < ApplicationController
 
   def show
     @question = Question.find(params[:id])
-    @user = 
+    @user =
     @evaluation = Evaluation.all
     if logged_in?
       @evaluation = evaluation(current_user.id, @question.id)

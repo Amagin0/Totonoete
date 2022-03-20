@@ -2,6 +2,7 @@ class Question < ApplicationRecord
   belongs_to :user, foreign_key: 'user_id', optional: true
   has_many :evaluations
   has_many :themes
+  has_secure_password
 
   def sum_rate
     evaluations.sum(:rate)

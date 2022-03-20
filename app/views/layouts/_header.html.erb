@@ -9,8 +9,8 @@
         <ul class="navbar-nav ml-auto">
             <li><%= link_to 'TOP', '/', class: 'fas fa-clipboard nav-link text-dark' %></li>
             <li><%= link_to 'ととのえてとは？', home_about_path, class: 'fas fa-bread-slice nav-link text-dark' %></li>
-          <% if logged_in? %>
             <li><%= link_to '回答一覧', questions_path, class: 'fas fa-bread-slice nav-link text-dark' %></li>
+          <% if logged_in? %>
             <li><%= link_to 'ととのえる', new_question_path, class: 'fas fa-bread-slice nav-link text-dark' %></li>
             <li><%= link_to 'ログアウト', logout_path, method: :delete, class: 'fas fa-sign-out-alt nav-link text-dark' %></li>
           <% else %>

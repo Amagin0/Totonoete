@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'evaluations/create'
   root 'homes#top'
   get 'home/about', to: 'homes#about'
   get '/login', to: 'sessions#new'
@@ -10,5 +11,7 @@ Rails.application.routes.draw do
   delete '/unsubscribe', to: 'users#destroy'
 
   resources :users
-  resources :questions
+  resources :questions do
+    resources :evaluations, only: %i[create]
+  end
 end

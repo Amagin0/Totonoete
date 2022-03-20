@@ -16,12 +16,21 @@
       </div>
     </p>
     <p>
-      <div id="evaluate_stars">
-      </div>
-      <%= form_with model:[@question, @evaluation], local: true ,method: :post do |f| %>
-        <div class="actions">
-          <%= f.submit "評価する"%>
-        </div>
+      <% if logged_in? %>
+        <% if Evaluation.exists?(user_id: current_user.id, question_id: @question.id) %>
+          <%= form_with model:[@question, @evaluation], url: question_evaluations_path(@question), local: true ,method: :patch do |f| %>
+            <%= f.label :評価 %>
+            <div id="evaluate_stars" data-score="<%= @evaluation.rate %>"></div>
+          <% end %>
+        <% else %>
+          <%= form_with model:[@question, @evaluation], url: question_evaluations_path(@question), local: true ,method: :post do |f| %>
+            <%= f.label :評価 %>
+            <div id="evaluate_stars_new"></div>
+            <div class="actions">
+              <%= f.submit "評価する"%>
+            </div>
+          <% end %>
+        <% end %>
       <% end %>
     </p>
     <p>
@@ -34,8 +43,16 @@
 
 <script>
   $('#evaluate_stars').raty({
+    readOnly: true,
     starOn: "<%= asset_path('star-on.png') %>",
     starOff: "<%= asset_path('star-off.png') %>",
-    scoreName: 'movie[evaluation]' 
+    scoreName: 'evaluation[rate]',
+  });
+
+  $('#evaluate_stars_new').raty({
+    starOn: "<%= asset_path('star-on.png') %>",
+    starOff: "<%= asset_path('star-off.png') %>",
+    scoreName: 'evaluation[rate]',
+    score: 0,
   });
 </script>

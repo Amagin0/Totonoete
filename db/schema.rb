@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_18_043509) do
+ActiveRecord::Schema.define(version: 2022_03_19_223811) do
 
   create_table "evaluations", force: :cascade do |t|
     t.integer "rate", default: 0, null: false
@@ -25,6 +25,13 @@ ActiveRecord::Schema.define(version: 2022_03_18_043509) do
     t.text "q_description"
     t.string "odai"
     t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "themes", force: :cascade do |t|
+    t.string "q_theme"
+    t.integer "question_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

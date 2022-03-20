@@ -2,14 +2,11 @@ class HomesController < ApplicationController
   def top
     @users = User.all
     @questions = Question.all
-    random_theme = Question.pluck(:id).shuffle[0..1]
-    @random_1st = Question.find(random_theme).first
-    @random_2nd = Question.find(random_theme).second
-    question_list = Question.limit(3).order(created_at: :desc)
-    @new_questions = question_list
-    @popular_questions = question_list.shuffle[0..5]
-    # @legend_questions = question_list.left_joins(:evaluations).limit(3).where(rate: 1000..)
-
+    @new_questions = Question.order(created_at: :desc).limit(3)
+    @popular_questions = Question.find(Evaluation.group(:question_id).having('sum(rate) >= ?', 5).where(created_at: Time.current.all_month).shuffle[0..2].pluck("question_id"))
+    # sum_rate_all = ActiveRecord::Base.connection.execute('select id, question_id, sum(rate) from evaluations group by question_id having sum(rate) >= 1000 order by random() limit 3')
+    # sum_rate = Evaluation.group(:question_id).having('sum(rate) >= ?', 1000).shuffle[0..2]
+    @legend_questions = Question.find(Evaluation.group(:question_id).having('sum(rate) >= ?', 10).shuffle[0..2].pluck("question_id"))
   end
 
   def about

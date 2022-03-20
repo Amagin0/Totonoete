@@ -17,8 +17,12 @@
     </p>
     <p>
       <div id="evaluate_stars">
-        <i class="fa-solid fa-star" style="color: yellow;"></i>
       </div>
+      <%= form_with model:[@question, @evaluation], local: true ,method: :post do |f| %>
+        <div class="actions">
+          <%= f.submit "評価する"%>
+        </div>
+      <% end %>
     </p>
     <p>
       <div class="card-footer">
@@ -27,3 +31,11 @@
     </p>
   </div>
 </div>
+
+<script>
+  $('#evaluate_stars').raty({
+    starOn: "<%= asset_path('star-on.png') %>",
+    starOff: "<%= asset_path('star-off.png') %>",
+    scoreName: 'movie[evaluation]' 
+  });
+</script>

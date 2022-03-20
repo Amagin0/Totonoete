@@ -1,4 +1,27 @@
-<h1>ユーザー情報</h1>
+<div class="offset-2">
+<% @page_title = "ユーザー"%>
 
-<p>メールアドレス：<%= current_user.email %></p>
-<p><%= link_to '登録解除', unsubscribe_path, method: :delete, data: { confirm: '本当に登録解除しますか？' } %></p>
+<h1 class="mt-5"><%= @user.name %>さんのユーザー情報</h1>
+  <table class="table table-borderless col-sm-6">
+    <tr>
+      <th>ユーザー名：</th>
+      <td><%= @user.name %></td>
+    </tr>
+    <tr>
+      <th>登録日：</th>
+      <td><%= current_user.created_at.to_s(:datetime_jp) %></td>
+    </tr>
+    <tr>
+      <th>投稿数：</th>
+      <td>
+        <%= @user.questions.count %>
+      </td>
+    </tr>
+    <tr>
+      <th></th>
+      <% if current_user? %>
+        <p><%= link_to '登録解除', unsubscribe_path, method: :delete, data: { confirm: '本当に登録解除しますか？' } %></p>
+      <% end %>
+    </tr>
+  </table>
+</div>

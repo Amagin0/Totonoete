@@ -13,6 +13,7 @@ class QuestionsController < ApplicationController
 
   def show
     @question = Question.find(params[:id])
+    @user = 
     @evaluation = Evaluation.all
     if logged_in?
       @evaluation = evaluation(current_user.id, @question.id)

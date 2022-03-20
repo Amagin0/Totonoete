@@ -1,0 +1,15 @@
+<%= stylesheet_link_tag 'homes', :media => "all" %>
+
+<div class="title">回答一覧</div>
+  <% @questions.each do |question| %>
+      <%= link_to question_path(question) do %>
+        <div class="question-body question-body-index">
+          <span class="question-title">お題</span>
+          <p><%= question.q_title %></p>
+          <div>
+            <%= image_tag "star-on.png" %>：<%= question.sum_rate %>
+          </div>
+        </div>
+    <% end %>
+  <% end %>
+</div>

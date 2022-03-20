@@ -6,7 +6,7 @@ class EvaluationsController < ApplicationController
     @evaluation.user_id = current_user.id
 
     if @evaluation.save
-      redirect_to questions_path
+      redirect_to question_path(@question)
     else
       redirect_to question_path(@question), alert: 'Error：1以上で評価してください'
     end

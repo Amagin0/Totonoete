@@ -1,5 +1,8 @@
 <%= stylesheet_link_tag 'questions', :media => "all" %>
-
+<% @page_title = "お題"%>
+<div class="alert">
+    <%= alert %>
+</div>
 <div class="card my-5">
   <div class="card-body">
     <div class="card-head">
@@ -35,7 +38,14 @@
     </p>
     <p>
       <div class="card-footer">
-        ととのえし者：<%= @question.user.name %>
+        <p>
+        <%= link_to user_path(@question.user_id) do %>
+          ととのえし者：<%= @question.user.name %>
+        <% end %>
+        </p>
+        <p>
+          ととのえた日：<%= @question.created_at.to_s(:datetime_jp) %>
+        </p>
       </div>
     </p>
   </div>

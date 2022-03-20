@@ -1,8 +1,9 @@
 <%= stylesheet_link_tag 'homes', :media => "all" %>
+<% @page_title = "TOP"%>
 
 <div class="tab_wrap">
-		<input id="tab1" type="radio" name="tab_btn" >
-		<input id="tab2" type="radio" name="tab_btn" checked>
+		<input id="tab1" type="radio" name="tab_btn" checked>
+		<input id="tab2" type="radio" name="tab_btn">
 		<input id="tab3" type="radio" name="tab_btn">
   <div class="tab_area">
 		<label class="tab1_label" for="tab1" >人気</label>
@@ -38,6 +39,9 @@
           </div>
         <% end %>
       <% end %>
+      <p>
+        <%= link_to "もっと見る>>", questions_path, class: "btn btn-outline-primary rounded-pill ml-5" %>
+      </p>
     </div>
 		<div id="panel3" class="tab_panel">
 		  <div class="title">殿堂入り</div>
@@ -52,7 +56,6 @@
           </div>
         <% end %>
       <% end %>
-
   	</div>
 	</div>
 </div>

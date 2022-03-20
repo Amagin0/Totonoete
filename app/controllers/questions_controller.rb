@@ -1,5 +1,5 @@
 class QuestionsController < ApplicationController
-  before_action :authenticate_user, only: %i[new show]
+  before_action :require_login, only: %i[new show]
 
   def new
     @question = Question.new

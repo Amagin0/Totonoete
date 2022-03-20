@@ -18,6 +18,7 @@ module SessionsHelper
   end
 
   def require_login
+    flash[:notice] = "ログインが必要です"
     redirect_to login_path if !logged_in?
   end
 
